@@ -5,12 +5,24 @@ import "./App.css";
 function App() {
   const [todo, setTodo] = useState([
     {
-      id: 1,
-      title: "test title",
-      content: "test content",
+      id: Date.now(),
+      title: "test",
+      content: "test",
     },
   ]);
+  console.log(todo);
+  //할 일 목록의 useState, 추가하는 useState는 별도 생성
 
+  const [newTodo, setNewTodo] = useState({
+    id: Date.now(),
+    title: "",
+    content: "",
+  });
+
+  const addTodo = (e) => {
+    e.preventDefault();
+  };
+  //추가 시 사용하는 상태
   return (
     <div>
       <h1>TODO LIST</h1>
@@ -18,14 +30,14 @@ function App() {
         <label>제목</label>
         <input
           type="text"
-          value={todo}
-          onChange={(e) => setTodo(e.target.value)}
+          value={newTodo.title}
+          onChange={(e) => setNewTodo(e.target.value)}
         ></input>
         <label>내용</label>
         <input
           type="text"
-          value={todo}
-          onChange={(e) => setTodo(e.target.value)}
+          value={newTodo.content}
+          onChange={(e) => setNewTodo(e.target.value)}
         ></input>
         <button>추가</button>
         <div className="working-carousel">
