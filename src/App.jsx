@@ -10,12 +10,20 @@ function App() {
       content: "test",
     },
   ]);
-  console.log(todo);
-  //할 일 목록의 useState, 추가하는 useState는 별도 생성
 
-    setTodo((item) => [...item, newTodo]);
+  console.log(todo);
+
+  const addTodo = (e) => {
+    e.preventDefault();
+    //input에 입력한 title, content가 각각 들어가야함
+    const newTodo = {
+      id: Date.now(),
+      title,
+      content,
+    };
+    setTodo([...todo, newTodo]);
   };
-  //추가 시 사용하는 상태
+
   return (
     <div>
       <h1>TODO LIST</h1>
