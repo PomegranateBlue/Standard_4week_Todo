@@ -21,6 +21,7 @@ function App() {
 
   const addTodo = (e) => {
     e.preventDefault();
+    setTodo((item) => [...item, newTodo]);
   };
   //추가 시 사용하는 상태
   return (
@@ -31,15 +32,15 @@ function App() {
         <input
           type="text"
           value={newTodo.title}
-          onChange={(e) => setNewTodo(e.target.value)}
+          onChange={(e) => setNewTodo({ ...todo, title: e.target.value })}
         ></input>
         <label>내용</label>
         <input
           type="text"
           value={newTodo.content}
-          onChange={(e) => setNewTodo(e.target.value)}
+          onChange={(e) => setNewTodo({ ...todo, content: e.target.value })}
         ></input>
-        <button>추가</button>
+        <button onClick={addTodo}>추가</button>
         <div className="working-carousel">
           {todo.map((item) => (
             <li key={item.id}>
