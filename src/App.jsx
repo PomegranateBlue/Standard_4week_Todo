@@ -5,21 +5,21 @@ import "./App.css";
 function App() {
   const [todo, setTodo] = useState([
     {
-      id: Date.now(),
+      id: 1,
       title: "test",
       content: "test",
     },
   ]);
-
-  console.log(todo);
+  const [newTodo, setNewTodo] = useState({});
+  // console.log(todo);
 
   const addTodo = (e) => {
     e.preventDefault();
     //input에 입력한 title, content가 각각 들어가야함
     const newTodo = {
       id: Date.now(),
-      title,
-      content,
+      title: e.target.value,
+      content: e.target.value,
     };
     setTodo([...todo, newTodo]);
   };
@@ -32,17 +32,13 @@ function App() {
         <input
           type="text"
           value={newTodo.title}
-          onChange={(e) =>
-            setNewTodo((item) => ({ ...item, title: e.target.value }))
-          }
+          onChange={(e) => setNewTodo(e.target.value)}
         ></input>
         <label>내용</label>
         <input
           type="text"
           value={newTodo.content}
-          onChange={(e) =>
-            setNewTodo((item) => ({ ...item, content: e.target.value }))
-          }
+          onChange={(e) => setNewTodo(e.target.value)}
         ></input>
         <button onClick={addTodo}>추가</button>
         <div className="working-carousel">
