@@ -10,7 +10,13 @@ const App = () => {
       content: "test Content",
     },
   ]);
-  const [completeTodos, setCompleteTodos] = useState([]);
+  const [completeTodos, setCompleteTodos] = useState([
+    {
+      id: 2,
+      title: "test completeTitle",
+      content: "test completeContent",
+    },
+  ]);
 
   // console.log(todos);
   const completeTodo = (id) => {
@@ -26,7 +32,11 @@ const App = () => {
     <div>
       <h1>TODO LIST</h1>
       <TodoForm todos={todos} setTodos={setTodos} />
-      <TodoList todos={todos} deleteTodo={deleteTodo} />
+      <TodoList
+        todos={todos}
+        completeTodos={completeTodos}
+        deleteTodo={deleteTodo}
+      />
     </div>
   );
 };

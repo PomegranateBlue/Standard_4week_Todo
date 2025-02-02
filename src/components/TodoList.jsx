@@ -1,4 +1,4 @@
-const TodoList = ({ todos, deleteTodo }) => {
+const TodoList = ({ todos, completeTodos, deleteTodo }) => {
   return (
     <div className="todoList-container">
       <div className="working-container">
@@ -13,6 +13,13 @@ const TodoList = ({ todos, deleteTodo }) => {
       </div>
       <div className="done-container">
         <h2>Done!</h2>
+        {completeTodos.map((item) => (
+          <li key={item.id}>
+            title:{item.title} - content:{item.content}
+            <button>취소</button>
+            <button onClick={() => deleteTodo(item.id)}>제거</button>
+          </li>
+        ))}
       </div>
     </div>
   );
