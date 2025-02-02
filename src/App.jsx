@@ -28,7 +28,7 @@ const App = () => {
   const deleteTodo = (id) => {
     //삭제 버튼을 누른 항목의 id 조회
     //해당 id를 제외한 todos 목록 업데이트
-    setTodos(todos.filter(({ item }) => item.id !== id));
+    setTodos(todos.filter((item) => item.id !== id));
   };
   const resetForm = () => {
     setTitle("");
@@ -60,7 +60,7 @@ const App = () => {
           {todos.map((item) => (
             <li key={item.id}>
               title:{item.title} - content:{item.content}
-              <button onClick={deleteTodo}>제거</button>
+              <button onClick={() => deleteTodo(item.id)}>제거</button>
             </li>
           ))}
         </div>
