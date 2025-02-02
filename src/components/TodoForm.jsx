@@ -9,7 +9,10 @@ const TodoForm = ({ todos, setTodos }) => {
   };
   const addTodo = (e) => {
     e.preventDefault();
-
+    if (!title || !content) {
+      alert("제목 또는 내용을 입력해주세요");
+      return;
+    }
     const newTodo = {
       id: Date.now(),
       title: title,

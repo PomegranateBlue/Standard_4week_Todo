@@ -10,9 +10,12 @@ const App = () => {
       content: "test Content",
     },
   ]);
+  const [completeTodos, setCompleteTodos] = useState([]);
 
   // console.log(todos);
-
+  const completeTodo = (id) => {
+    setTodos(todos.filter((item) => item.id));
+  };
   const deleteTodo = (id) => {
     //삭제 버튼을 누른 항목의 id 조회
     //해당 id를 제외한 todos 목록 업데이트

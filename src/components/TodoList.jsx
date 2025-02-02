@@ -6,6 +6,7 @@ const TodoList = ({ todos, deleteTodo }) => {
         {todos.map((item) => (
           <li key={item.id}>
             title:{item.title} - content:{item.content}
+            <button>완료</button>
             <button onClick={() => deleteTodo(item.id)}>제거</button>
           </li>
         ))}
