@@ -1,0 +1,10 @@
+.workingTodos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.doneTodos {
+  display: flex;
+  justify-content: center;
+}

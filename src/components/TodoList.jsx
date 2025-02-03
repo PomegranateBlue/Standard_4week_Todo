@@ -1,3 +1,4 @@
+import "../styles/TodoList.css";
 const TodoList = ({
   todos,
   setTodos,
@@ -20,8 +21,8 @@ const TodoList = ({
       <div className="working-container">
         <h2>Working...</h2>
         {todos.map((item) => (
-          <li key={item.id}>
-            title:{item.title} - content:{item.content}
+          <li className="workingTodos" key={item.id}>
+            제목:{item.title} - 내용:{item.content}
             <button onClick={() => completeTodo(item.id)}>완료</button>
             <button onClick={() => deleteTodo(item.id)}>제거</button>
           </li>
@@ -30,8 +31,8 @@ const TodoList = ({
       <div className="done-container">
         <h2>Done!</h2>
         {completeTodos.map((item) => (
-          <li key={item.id}>
-            title:{item.title} - content:{item.content}
+          <li className="doneTodos" key={item.id}>
+            제목:{item.title} - 내용:{item.content}
             <button onClick={() => cancleTodo(item.id)}>취소</button>
             <button onClick={() => deleteTodo(item.id)}>제거</button>
           </li>

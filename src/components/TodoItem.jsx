@@ -1,26 +1,51 @@
 {
-  /*투두 리스트로 만든 카드를 렌더링할 것
-카드에는 다음과 같은 항목이 포함된다.
+  /*투두 카드를 구현하자, 1개의 카드를 구현
+  해당 투두 가드가 위치하는 리스트를 구분하기 위해 type으로 구분분
+  
+  const [todos, setTodos] = useState([
+    {
+      id: 1,
+      type: "working",
+      title: "test Title",
+      content: "test Content",
+    },
+  ]);
+  const [completeTodos, setCompleteTodos] = useState([
+    {
+      id: 2,
+      type: "done",
+      title: "test completeTitle",
+      content: "test completeContent",
+    },
+  ]);
 
---Working에서 구현할 카드 내용
-- 제목
-- 내용
-- 완료 버튼
-- 삭제 버튼
+  위와 같은 데이터 타입다루기
 
---Done에서 구현할 카드 내용
- - 제목
- - 내용
- - 취소버튼
- - 삭제버튼
+  - type은 최초 입력 시 'working'으로 고정
+  - 완료 버튼 이벤트를 통해 'done','working'타입 전환 가능하게 할 것
 
-
- 완료와 삭제 버튼을 통해 Working, Done 리스트를 자유로이 이동할 것
-
-    */
+  */
 }
 import { useState } from "react";
 const TodoItem = ({ todos, completeTodos }) => {
-  return <div></div>;
+  return (
+    <div className="todoCard">
+      {todos.map((item) => {
+        if (item.type === "working") {
+          <li className="workingTodo" key={item.id}>
+            제목:{item.title} - 내용:{item.content}
+            <button>완료</button>
+            <button>삭제</button>
+          </li>;
+        } else if (item.type === "done") {
+          <li className="doneTodo" key={item.id}>
+            제목:{item.title} - 내용:{item.content}
+            <button>취소</button>
+            <button>삭제</button>
+          </li>;
+        }
+      })}
+    </div>
+  );
 };
 export default TodoItem;

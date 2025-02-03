@@ -6,6 +6,7 @@ const App = () => {
   const [todos, setTodos] = useState([
     {
       id: 1,
+      type: "working",
       title: "test Title",
       content: "test Content",
     },
@@ -13,6 +14,7 @@ const App = () => {
   const [completeTodos, setCompleteTodos] = useState([
     {
       id: 2,
+      type: "done",
       title: "test completeTitle",
       content: "test completeContent",
     },
