@@ -1,45 +1,20 @@
 import "../styles/TodoList.css";
-const TodoList = ({
-  todos,
-  setTodos,
-  completeTodos,
-  setCompleteTodos,
-  deleteTodo,
-}) => {
+import "./TodoItem";
+const TodoList = ({ todos, setTodos }) => {
   const completeTodo = (id) => {
     const completeTodo = todos.find((item) => item.id === id);
     setCompleteTodos([...completeTodos, completeTodo]);
     setTodos(todos.filter((item) => item.id !== id));
   };
-  const cancleTodo = (id) => {
-    const cancleTodo = completeTodos.find((item) => item.id === id);
-    setTodos([...todos, cancleTodo]);
+  const cancelTodo = (id) => {
+    const cancelTodo = completeTodos.find((item) => item.id === id);
+    setTodos([...todos, cancelTodo]);
     setCompleteTodos(completeTodos.filter((item) => item.id !== id));
   };
-  return (
-    <div className="todoList-container">
-      <div className="working-container">
-        <h2>Working...</h2>
-        {todos.map((item) => (
-          <li className="workingTodos" key={item.id}>
-            제목:{item.title} - 내용:{item.content}
-            <button onClick={() => completeTodo(item.id)}>완료</button>
-            <button onClick={() => deleteTodo(item.id)}>제거</button>
-          </li>
-        ))}
-      </div>
-      <div className="done-container">
-        <h2>Done!</h2>
-        {completeTodos.map((item) => (
-          <li className="doneTodos" key={item.id}>
-            제목:{item.title} - 내용:{item.content}
-            <button onClick={() => cancleTodo(item.id)}>취소</button>
-            <button onClick={() => deleteTodo(item.id)}>제거</button>
-          </li>
-        ))}
-      </div>
-    </div>
-  );
+  const deleteTodo = (id) => {
+    setTodos(todos.filter((item) => item.id !== id));
+  };
+  return <div></div>;
 };
 
 export default TodoList;

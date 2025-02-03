@@ -1,6 +1,7 @@
 import "./App.css";
 import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList";
+import TodoItem from "./components/TodoItem";
 import { useState } from "react";
 const App = () => {
   const [todos, setTodos] = useState([
@@ -11,7 +12,7 @@ const App = () => {
       content: "test Content",
     },
   ]);
-  const [completeTodos, setCompleteTodos] = useState([
+  const [doneTodos, setDoneTodos] = useState([
     {
       id: 2,
       type: "done",
