@@ -20,5 +20,7 @@
     */
 }
 import { useState } from "react";
-const TodoItem = ({ todos, completeTodos }) => {};
+const TodoItem = ({ todos, completeTodos }) => {
+  return <div></div>;
+};
 export default TodoItem;

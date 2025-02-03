@@ -1,4 +1,20 @@
-const TodoList = ({ todos, completeTodos, deleteTodo }) => {
+const TodoList = ({
+  todos,
+  setTodos,
+  completeTodos,
+  setCompleteTodos,
+  deleteTodo,
+}) => {
+  const completeTodo = (id) => {
+    const completeTodo = todos.find((item) => item.id === id);
+    setCompleteTodos([...completeTodos, completeTodo]);
+    setTodos(todos.filter((item) => item.id !== id));
+  };
+  const cancleTodo = (id) => {
+    const cancleTodo = completeTodos.find((item) => item.id === id);
+    setTodos([...todos, cancleTodo]);
+    setCompleteTodos(completeTodos.filter((item) => item.id !== id));
+  };
   return (
     <div className="todoList-container">
       <div className="working-container">
@@ -6,7 +22,7 @@ const TodoList = ({ todos, completeTodos, deleteTodo }) => {
         {todos.map((item) => (
           <li key={item.id}>
             title:{item.title} - content:{item.content}
-            <button>완료</button>
+            <button onClick={() => completeTodo(item.id)}>완료</button>
             <button onClick={() => deleteTodo(item.id)}>제거</button>
           </li>
         ))}
@@ -16,7 +32,7 @@ const TodoList = ({ todos, completeTodos, deleteTodo }) => {
         {completeTodos.map((item) => (
           <li key={item.id}>
             title:{item.title} - content:{item.content}
-            <button>취소</button>
+            <button onClick={() => cancleTodo(item.id)}>취소</button>
             <button onClick={() => deleteTodo(item.id)}>제거</button>
           </li>
         ))}
