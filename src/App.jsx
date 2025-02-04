@@ -1,21 +1,18 @@
 import "./App.css";
 import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList";
-import TodoItem from "./components/TodoItem";
 import { useState } from "react";
 const App = () => {
   const [todos, setTodos] = useState([
     {
       id: 1,
-      type: "working",
       title: "test Title",
       content: "test Content",
     },
   ]);
-  const [doneTodos, setDoneTodos] = useState([
+  const [completeTodos, setCompleteTodos] = useState([
     {
       id: 2,
-      type: "done",
       title: "test completeTitle",
       content: "test completeContent",
     },
